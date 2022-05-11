@@ -20,10 +20,20 @@
 
 				return valid;
 			} },
-			height: { value: 0 }
+			height: { value: 0 },
+            tooltip: {value: ''}
 		},
 		label: function() {
 			return this.name || 'digital clock';
+		},
+		tooltip: function() {
+			const date = new Date();
+			var rDate = date.getDate().toString().padStart( 2, '0' );
+			rDate += "/";
+			rDate += date.getMonth().toString().padStart( 2, '0' );
+			rDate += "/";
+			rDate += date.getFullYear().toString();
+			return rDate;
 		},
 		oneditprepare: () => {
 			$( '#node-input-size' ).elementSizer( {
