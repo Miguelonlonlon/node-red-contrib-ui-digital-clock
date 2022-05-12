@@ -67,6 +67,9 @@ module.exports = RED => {
 				height: +config.height || 1,
 				group: config.group,
 				order: config.order,
+				control: {
+					tooltip: config.tooltip
+				},
 				beforeEmit: msg => ( { msg } ),
 				initController: $scope => $scope.$watch( 'msg.payload', payload => {
 					const date = new Date( +payload || 0 );
